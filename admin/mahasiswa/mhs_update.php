@@ -85,7 +85,7 @@ error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
         <select class="form-control" name="th_masuk" required>
 					   <option value="">Select tahun</option>
                     <?php
-                    $sql = mysqli_query($conn, "SELECT th_masuk from mahasiswa");
+                    $sql = mysqli_query($conn, "SELECT distinct th_masuk from mahasiswa order by th_masuk desc");
                     $row = mysqli_num_rows($sql);
 					    
                     while ($row = mysqli_fetch_array($sql)){
