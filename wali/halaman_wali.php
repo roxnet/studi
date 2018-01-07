@@ -71,7 +71,7 @@ if(!isset($_SESSION['username'])){
 				<a class="dropdown-toggle" data-toggle="dropdown">Prediksi<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 				<li><a href="data_training.php">Data Training</a></li>
-				<li><a href="data_testing.php">Data TESTING</a></li>
+				<li><a href="data_testing.php">Data Testing</a></li>
 				<li><a href="akurasi.php">Data Training</a></li>
 				</ul>
 				</li>

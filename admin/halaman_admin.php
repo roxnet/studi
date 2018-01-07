@@ -76,7 +76,7 @@ include('../cekadmin.php');
 				<li><a href="prediksi/daftar_prediksi.php">Daftar Prediksi</a></li>
 				<li><a href="prediksi/data_training.php">Data Training</a></li>
 				<li><a href="prediksi/data_testing.php">Data Testing</a></li>
-				<li><a href="prediksi/prediksi_input.php">Pediksi</a></li>
+				<li><a href="prediksi/prediksi_input.php">Prediksi</a></li>
 				<li><a href="prediksi/akurasi_input.php">Akurasi</a></li>
 				</ul>
 				</li>
