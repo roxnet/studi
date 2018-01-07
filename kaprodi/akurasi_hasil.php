@@ -1,5 +1,5 @@
  <?php
- include_once "../../koneksi.php";
+ include_once "../koneksi.php";
  $koneksi=koneksi();
    $nim=$_GET["nim"];
    $datatesting1=mysqli_query($koneksi,"SELECT status FROM Mahasiswa WHERE nim=$nim ORDER BY nim;");
@@ -23,19 +23,16 @@
     <title>Form Prediksi</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   </head>
 
   <body>
 
-    <div class="container">
+    <div class="container-">
       <div class="row">
-          <h4 class="page-header">  <p class="navbar-text navbar-right hidden-xs" style="color: black;padding-right: 10px;">
-        <a class="navbar-text navbar-right hidden-xs" style="color: black;padding-right: 10px" href="../halaman_admin.php">KEMBALI</a>   
-
-        </p></h4>
         <div class="col-lg-12">
+          <h1 class="page-header"></h1>
           <div class="row justify-content-md-center">
 <?php
                echo "
@@ -110,8 +107,8 @@
     <!-- /.container -->
 
     <!-- Bootstrap core JavaScript -->
-    <script src="../../assets/js/jquery-1.12.3.min.js"></script>
-    <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/jquery-1.12.3.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
  
   </body>
 

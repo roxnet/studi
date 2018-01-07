@@ -35,9 +35,9 @@ include_once 'header_prodi.php';
                         <td><?php echo  $r['nim']; ?></td>
                         <td><?php echo  $r['nilaiK']; ?></td>
                                               
-                        <?php if($r['hasil_prediksi'] == 'LC') {
+                        <?php if($r['hasil'] == 'LC') {
 									$pred = 'Lulus Cepat'; }
-									else if ($r['hasil_prediksi'] == 'LT' ){
+									else if ($r['hasil'] == 'LT' ){
 									$pred = 'Lulus Tepat waktu'; }
 										else {
 										$pred ='Belum Terlambat';
@@ -61,10 +61,10 @@ include_once 'header_prodi.php';
             </table>  
         </div>
         
-        <script src="../../assets/js/jquery-1.11.0.js"></script>
-        <script src="../../assets/js/bootstrap.min.js"></script>
-        <script src="../../assets/datatables/jquery.dataTables.js"></script>
-        <script src="../../assets/datatables/dataTables.bootstrap.js"></script>
+        <script src="../assets/js/jquery-1.11.0.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/datatables/jquery.dataTables.js"></script>
+        <script src="../assets/datatables/dataTables.bootstrap.js"></script>
         <script type="text/javascript">
             $(function() {
                 $("#mahasiswa").dataTable();

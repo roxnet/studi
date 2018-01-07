@@ -16,12 +16,20 @@
   </head>
 
   <body>
-
-    <div class="container-">
+  
+    <div class="container">
+    
       <div class="row">
+       
+          <h4 class="page-header">  <p class="navbar-text navbar-right hidden-xs" style="color: black;padding-right: 10px;">
+        <a class="navbar-text navbar-right hidden-xs" style="color: black;padding-right: 10px" href="../halaman_admin.php">KEMBALI</a>   
+
+        </p></h4>
+            
         <div class="col-lg-12">
-          <h1 class="page-header"></h1>
+        
           <div class="row justify-content-md-center">
+          
            <div class="col-md-4 col-md-offset-4 well">
               <div id="simpan"></div>
               <center><h3 class="page-header">PERKIRAAN HASIL STUDI </h3></center>
