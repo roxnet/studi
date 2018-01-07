@@ -1,7 +1,7 @@
 
 
 <?php
-    include_once "../../koneksi.php";
+    include_once "../koneksi.php";
 
     $nim=$_POST["nim"];
     $nilaik=$_POST["nilaik"];

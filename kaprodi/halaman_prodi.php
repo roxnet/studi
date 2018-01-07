@@ -65,7 +65,6 @@ if(!isset($_SESSION['username'])){
 				<a class="dropdown-toggle" data-toggle="dropdown">Mahasiswa<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 				<li><a href="mhs_tampil.php">Daftar Mahasiswa</a></li>
-				<li><a href="mhs_tambah.php">Input Mahasiswa</a></li>
 				</ul>
 				</li>
 				<li class="c2 dropdown">
@@ -77,11 +76,9 @@ if(!isset($_SESSION['username'])){
 				<li class="c2 dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown">Prediksi<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-				<li><a href="prediksi_input.php">Prediksi Input</a></li>
 				<li><a href="data_training.php">Data Training</a></li>
 				<li><a href="data_testing.php">Data Testing</a></li>
 				<li><a href="prediksi_tampil.php">Prediksi</a></li>
-				<li><a href="akurasi_input.php">Akurasi</a></li>
 				</ul>
 				</li>
 				

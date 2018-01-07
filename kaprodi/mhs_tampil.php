@@ -24,7 +24,8 @@ include_once 'header_prodi.php';
                     //Data mentah yang ditampilkan ke tabel    
 					require_once '../koneksi.php';
                     $conn = koneksi();                   
-                    $sql ="select mahasiswa.* , wali.* from mahasiswa inner join wali on mahasiswa.id_wali = wali.id_wali";
+                    $sql ="select mahasiswa.* , wali.* from mahasiswa 
+                    inner join wali on mahasiswa.id_wali = wali.id_wali ORDER BY mahasiswa.th_masuk desc,nama_mhs asc";
                     
 					$hasil = mysqli_query($conn, $sql);
 					if(mysqli_num_rows($hasil) > 0){

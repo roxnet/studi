@@ -17,7 +17,7 @@
     $jumlahsemester=mysqli_query($koneksi,"SELECT MAX(semester) as jumsemester FROM nilai_semester WHERE nim=".$nim."");
     $jumsemester=mysqli_fetch_assoc($jumlahsemester);
 
-     //diambil setiap nim mahasiswa trainig
+     //diambil setiap nim mahasiswa training
       $dataarray=array();
           while  ($getnimmahasiswa=mysqli_fetch_assoc($querymahasiswalulus)){
             $dataarray[]=$getnimmahasiswa['nim'];
@@ -33,7 +33,7 @@
             $ipstesting=mysqli_fetch_assoc(mysqli_query($koneksi,"SELECT IPS FROM nilai_semester WHERE semester=".$minin." AND nim=".$nim.";"));
 
             //rumus untuk perpangkatan setiap sks
-            $rumus=POW(($ipstraining['IPS']-$ipstesting['IPS']),2);
+            $rumus=POW(($ipstesting['IPS']-$ipstraining['IPS']),2);
             $rumuspangkat=$rumus+$rumuspangkat;    
         };
 
@@ -44,7 +44,7 @@
 
         $rumus=NULL;
         //rumus untuk perpangkatan sks+ips
-        $rumus=SQRT($rumuspangkat+POW($totalskstraining['sks']-$totalskstesting['sks'],2));
+        $rumus=SQRT($rumuspangkat+POW($totalskstesting['sks']-$totalskstraning['sks'],2));
 
         //mendapatkan nama mahasiswa dan Status lulus*/
         $nama_mhs=mysqli_fetch_assoc(mysqli_query($koneksi," SELECT nama_mhs FROM Mahasiswa WHERE nim=".$dataarray[$minout-1].";"));
@@ -167,7 +167,7 @@
 			  var nilaik=<?php echo $nilaik; ?> ;
             $.ajax({
               type: "POST",
-              url: "akurasi_simpan.php",
+              url: "prediksi_simpan.php",
               data: 'nim=' + nim + '&nama=' + nama +'&nilaik='+nilaik +'&hasil='+ hasil ,
               success: function (respons) {
                 $('#simpan').html(respons);

@@ -1,5 +1,6 @@
 <?php
 include_once 'header_prodi.php';
+$nim=$_GET['nim'];
 ?>
 <div class="container" style="margin-top:40px">
 
@@ -12,21 +13,7 @@ include_once 'header_prodi.php';
            <div class="col-md-4 col-md-offset-4 well">
               <div id="simpan"></div>
               <center><h3 class="page-header">PERKIRAAN HASIL STUDI </h3></center>
-             <div class="form-group">
-                <label for="nim">Data Testing</label>
-                <select class="form-control" id="nim" name="nim">
-                <?php
-                   include_once "../koneksi.php";
-                      $koneksi=koneksi();
-                    $datatesting=mysqli_query($koneksi,"SELECT nim,nama_mhs FROM Mahasiswa WHERE status='BL' ORDER BY nim;");
-                  while ($data=mysqli_fetch_assoc($datatesting))
-                    echo "
-                      <option value=".$data['nim'].">".$data['nim']." - ".$data['nama_mhs']."</option>
-                  ";
-
-                ?>
-               </select>
-              </div>
+           
               <div class="form-group">
                 <label for="sel1">Nilai K:</label>
                 <select class="form-control" id="sel1" name="nilaik">
@@ -55,7 +42,7 @@ include_once 'header_prodi.php';
     <script>
       $(document).ready(function () {
           $("#hitung").click(function () {
-            var nim = $('input[name=nim]').val();
+            var nim = '<?php echo $nim;?>';
             var nilaik = $('select[name=nilaik]').val();
             $.ajax({
               type: "POST",

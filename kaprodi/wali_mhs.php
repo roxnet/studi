@@ -37,7 +37,7 @@ $id_wali = $_GET['id_wali'];
                     $conn = koneksi();                   
                     $sql ="select mahasiswa.*, wali.nama_wali from mahasiswa inner join wali
 							on mahasiswa.id_wali = wali.id_wali 
-							where wali.id_wali = '$id_wali'";
+							where wali.id_wali = '$id_wali' ORDER BY mahasiswa.th_masuk DESC,mahasiswa.nama_mhs asc";
                     
 					$hasil = mysqli_query($conn, $sql);
 					$no = 1;

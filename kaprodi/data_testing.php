@@ -24,10 +24,10 @@ include_once 'header_prodi.php';
 
                     require_once '../koneksi.php';
                     $conn = koneksi();                   
-                    $sql ="select mahasiswa.* , wali.* , nilai_semester.* from mahasiswa 
-							inner join wali on mahasiswa.id_wali = wali.id_wali 
-							inner join nilai_semester on mahasiswa.nim = nilai_semester.nim
-							where status LIKE '%BL' group by mahasiswa.nim";
+                    $sql ="select distinct a.nim,b.nama_wali,a.th_masuk,a.status,a.nama_mhs from mahasiswa a
+                            inner join wali b on a.id_wali=b.id_wali
+                            inner join nilai_semester c on a.nim=c.nim
+                            where a.`status`='BL' AND c.semester in(1,2,3,4) ";
                     
 					$hasil = mysqli_query($conn, $sql);
 					$no = 1;

@@ -56,7 +56,7 @@ if(!isset($_SESSION['username'])){
 				<li class="c2 dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown">Dosen Wali<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-				<li><a href=".php">Profil Saya</a></li>
+				<li><a href="profil.php">Profil Saya</a></li>
 				</ul>
 				</li>
 				<li class="c2 dropdown">
