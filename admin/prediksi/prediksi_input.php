@@ -35,7 +35,8 @@
                 <?php
                    include_once "../../koneksi.php";
                       $koneksi=koneksi();
-                    $datatesting=mysqli_query($koneksi,"SELECT nim,nama_mhs FROM Mahasiswa WHERE status='BL' ORDER BY nim;");
+                    $datatesting=mysqli_query($koneksi,"SELECT distinct A.nim,A.nama_mhs FROM Mahasiswa A
+                    INNER JOIN nilai_semester B ON A.nim=B.nim WHERE A.status='BL' ORDER BY A.nim;");
                   while ($data=mysqli_fetch_assoc($datatesting))
                     echo "
                       <option value=".$data['nim'].">".$data['nim']." - ".$data['nama_mhs']."</option>

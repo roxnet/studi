@@ -32,12 +32,14 @@ function bacaUser($sql){
 
 // menambahkan data ke tabel user
 
-function tambahUser($id_user, $nm_user, $username, $password, $level){
+function tambahUser( $nm_user, $username, $password, $level){
+  
   $koneksi = koneksi();
-  $sql = "insert into user values('$id_user', '$nm_user', '$username', '$password', '$level')";
+  $sql = "insert into user(nm_user,username,password,level) values( '$nm_user', '$username', '$password', '$level')";
   $hasil = 0;
   if(mysqli_query($koneksi, $sql))
     $hasil = 1;
+    else echo mysqli_error($koneksi);
   mysqli_close($koneksi);
   return $hasil;
 }

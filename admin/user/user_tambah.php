@@ -66,7 +66,6 @@
       <label class="control-label col-sm-5" ></label>
       <button type="submit" class="btn btn-success">Simpan</button>
       <button type="reset" class="btn btn-danger" >Reset</button>
-      <input type ="hidden" name="id_user" />
 </form>
 </div>
 

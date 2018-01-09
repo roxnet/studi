@@ -77,10 +77,16 @@
     <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
     <script>
       $(document).ready(function () {
+        
           $("#hitung").click(function () {
-            var nim = $('select[name=nim]').val();
+              var nim = $('select[name=nim]').val();
             var nilaik = $('select[name=nilaik]').val();
             var status = $('input[name=history]').val();
+             if (nim=='' || nim==null){
+                  $('#simpan').html('Pilih Tahun Masuk');
+            }
+            else{
+          
             $.ajax({
               type: "POST",
               url: "akurasi_proses.php",
@@ -89,10 +95,12 @@
                 $('#hasil').html(respons);
               }
             });
+            }
           });
 
            $("#thnmsk").change(function () {
             var thnmsk = $('select[name=thnmsk]').val();
+           
             $.ajax({
               type: "POST",
               url: "akurasi_mhs.php",
@@ -101,6 +109,7 @@
                 $('#mhs').html(respons);
               }
             });
+            
           });
         
       });

@@ -1,6 +1,5 @@
 <?php
 include('crudUser.php');
-$id_user 	= $_POST['id_user'];
 $nm_user 	= $_POST['nm_user'];
 $username 	= $_POST['username'];
 $password 	= $_POST['password'];
@@ -47,7 +46,7 @@ $level 		= $_POST['level'];
 		exit;	// program berhenti
 	}
 
-$hasil = tambahUser($id_user, $nm_user, $username, $password, $level);
+$hasil = tambahUser( $nm_user, $username, $password, $level);
 if($hasil > 0)
 	header("Location: user_tampil.php");
 else {
