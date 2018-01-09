@@ -3,6 +3,7 @@
     <select class="form-control" id="nim" name="nim">
 <?php
 include_once "../koneksi.php";
+include_once "../cekadmin.php";
     $koneksi=koneksi();
      $thnmsk=$_POST['thnmsk'];
 $datatesting=mysqli_query($koneksi,"SELECT nim,nama_mhs,status FROM Mahasiswa WHERE th_masuk=$thnmsk ORDER BY nim;");

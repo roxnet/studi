@@ -1,5 +1,6 @@
 <?php
 include('crudMahasiswa.php');
+include_once "../../cekadmin.php";
 $update = $_POST['update'];
 if($update == 'update'){
 	$nim 	= $_POST['nim'];

@@ -1,6 +1,6 @@
 <?php
 include_once "../../koneksi.php";
-
+include_once "../../cekadmin.php";
     $nim=$_POST["nim"];
     $hasil=$_POST['hasil'];
 	$nilaik=$_POST['nilaik'];

@@ -1,4 +1,5 @@
 <?php
+include_once "../../cekadmin.php";
 	include_once('crudMahasiswa.php');
 	$nim 		= $_REQUEST['nim'];
 	$id_wali 	= $_POST['id_wali'];

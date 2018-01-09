@@ -46,7 +46,8 @@ error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
                 <select name='id_wali' required class="form-control">
                 <?php
 						require_once("../../koneksi.php");
-						$conn = koneksi();
+            $conn = koneksi();
+            include_once "../../cekadmin.php";
 						$sql  = "select * from wali";
 						$result = mysqli_query($conn, $sql);
 						if (!$result) die("Gagal Query hotel".mysqli_error($conn));

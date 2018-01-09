@@ -21,7 +21,7 @@
 <?php
 include ('crudMahasiswa.php');
 include ('crudNilai.php');
-
+include_once "../../cekadmin.php";
 $nim = $_GET['nim'];
 $data = cariMahasiswa($nim);
 ?>

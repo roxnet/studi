@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include_once "../cekadmin.php";
 //cek apakah user sudah login
 if(!isset($_SESSION['username'])){
     die("Anda belum login");	

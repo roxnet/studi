@@ -1,5 +1,6 @@
 <?php
 include('crudWali.php');
+include_once "../../cekadmin.php";
 $update = $_POST['update'];
 if($update 		== 'update'){
    $id_wali 	= $_POST['id_wali'];

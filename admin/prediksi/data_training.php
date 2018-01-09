@@ -36,6 +36,7 @@
                     <?php
 
                     require_once '../../koneksi.php';
+                    include_once "../../cekadmin.php";
                     $conn = koneksi();                   
                     $sql ="select mahasiswa.* , wali.* from mahasiswa 
 							inner join wali on mahasiswa.id_wali = wali.id_wali

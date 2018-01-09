@@ -39,6 +39,7 @@
                 <?php
                     include_once "../../koneksi.php";
                         $koneksi=koneksi();
+                        include_once "../../cekadmin.php";
                     $datatesting=mysqli_query($koneksi,"SELECT distinct th_masuk FROM Mahasiswa  WHERE status IN('LL','LT','LC') ORDER BY th_masuk DESC;");
                     while ($data=mysqli_fetch_assoc($datatesting))
                     echo "

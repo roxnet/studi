@@ -1,6 +1,7 @@
 <?php
 include_once 'header_prodi.php';
 $nim=$_GET['nim'];
+include_once "../cekadmin.php";
 ?>
 <div class="container" style="margin-top:40px">
 

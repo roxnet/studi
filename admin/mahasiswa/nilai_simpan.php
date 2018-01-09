@@ -1,5 +1,6 @@
 <?php
 include('crudNilai.php');
+include_once "../../cekadmin.php";
 $id_nilai 	= $_POST['id_nilai'];
 $nim 		= $_POST['nim'];
 $semester 	= $_POST['semester'];

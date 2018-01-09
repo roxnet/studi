@@ -4,6 +4,7 @@
 <?php
 include_once "../../koneksi.php";
     $koneksi=koneksi();
+    include_once "../../cekadmin.php";
      $thnmsk=$_POST['thnmsk'];
 $datatesting=mysqli_query($koneksi,"SELECT nim,nama_mhs,status FROM Mahasiswa WHERE th_masuk=$thnmsk ORDER BY nim;");
 

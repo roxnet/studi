@@ -35,6 +35,7 @@
         <select class="form-control" name='id_wali' required>
             <?php
             include_once("../wali/crudWali.php");
+            include_once "../../cekadmin.php";
             $sql= "select * from wali";
             $data = bacaWali($sql);
             // sampe sini berarti berhasil query

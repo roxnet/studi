@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 include_once 'header_wali.php';
+include_once "../cekadmin.php";
 ?>
 <?php
 $nim = $_GET["nim"];

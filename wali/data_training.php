@@ -1,5 +1,6 @@
 <?php
 include_once 'header_wali.php';
+include_once "../cekadmin.php";
 ?>
 <div class="container" style="margin-top:40px">
   <h2 align = 'center'>Data Training</h2>

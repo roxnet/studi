@@ -1,5 +1,6 @@
  <?php
  include_once "../../koneksi.php";
+ include_once "../../cekadmin.php";
  $koneksi=koneksi();
    $nim=$_GET["nim"];
    $datatesting1=mysqli_query($koneksi,"SELECT status FROM Mahasiswa WHERE nim=$nim ORDER BY nim;");

@@ -1,5 +1,6 @@
 <?php
 include('crudUser.php');
+include_once "../../cekadmin.php";
 $update = $_POST['update'];
 if($update == 'update'){
 	$id_user 	= $_POST['id_user'];

@@ -1,3 +1,6 @@
+<?php
+include_once "../../cekadmin.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 

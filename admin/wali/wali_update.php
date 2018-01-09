@@ -2,6 +2,7 @@
 
 $id_wali=$_GET['id_wali'];
 include "../../koneksi.php";
+include_once "../../cekadmin.php";
 $conn = koneksi();
 
  $sql1 = "select * from wali where id_wali = '$id_wali'";	

@@ -1,5 +1,6 @@
 <?php
 include('crudUser.php');
+include_once "../../cekadmin.php";
 $nm_user 	= $_POST['nm_user'];
 $username 	= $_POST['username'];
 $password 	= $_POST['password'];

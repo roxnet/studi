@@ -1,6 +1,6 @@
 <?php
 include ('crudUser.php');
-
+include_once "../../cekadmin.php";
 $id_user = $_GET['id_user'];
 $data = cariUser($id_user);
 ?>
