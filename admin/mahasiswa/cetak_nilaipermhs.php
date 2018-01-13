@@ -5,43 +5,16 @@
         <link rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="../../assets/css/dataTables.bootstrap.css"/>
     </head> 
-    <body>
-        <nav class="navbar navbar-inverse" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#" style="color: white;" align="center"><b>Daftar Nilai per Mahasiswa</b></a>
-        </div>
-        <p class="navbar-text navbar-right hidden-xs" style="color: white;padding-right: 10px;">
-        <a class="navbar-text navbar-right hidden-xs" style="color: white;padding-right: 10px" onload='history.back()'>Kembali</a>   
-        <a class="navbar-text navbar-right hidden-xs" style="color: white;padding-right: 10px" href="mhs_tampil.php">Dasboard</a>   
-
-
-        </p>
-      </div>
-    </nav>
+    <body onload='window.print()'>
 
 
 <?php
 $nim = $_GET['nim'];
-
-if(array_key_exists('hapus', $_GET))
-$hapus = $_GET['hapus'];
-else
-$hapus = 1;
-
 ?>
 <div class="container">
-
-    <?php
-    if($hapus ==0)
-      echo "<span style ='color :red'>gagal hapus data nilai mahasiswa</span>";
-    ?>
-	<tbody>
-                    <?php
-
+    <tbody><?php
                     //Data mentah yang ditampilkan ke tabel    
-					require_once '../../koneksi.php';
-										
+					require_once '../../koneksi.php';									
                     $conn = koneksi();                   
                     $sql  ="select mahasiswa.*, wali.nama_wali 
 							from mahasiswa inner join wali 
@@ -49,12 +22,14 @@ $hapus = 1;
 								where nim = '$nim'";
                     
 					$h = mysqli_query($conn, $sql);
-					             while ($r = mysqli_fetch_array($h)) {
-                                     
+                    while ($r = mysqli_fetch_array($h)) {
                     ?>
+           
+                <center><h2>Transkrip Nilai</h2></center>
+                <br/><br/>
 				<table>
                     <tr align='left'>
-						<th width="20%">NIM</th>
+						<th width="10%">NIM</th>
 							<td width="20%"><?php echo  $r['nim']; ?></td></tr>
 					<tr>
 						<th width="20%">NAMA MAHASISWA</th>
@@ -63,27 +38,24 @@ $hapus = 1;
 						<th width="20%">DOSEN WALI</th>
 							<td width="20%"><?php echo  $r['nama_wali']; ?></td></tr>
 					<tr>
-						<th width="20%">TAHUN ANGKATAN</th>
+						<th width="10%">TAHUN ANGKATAN</th>
 							<td width="20%"><?php echo  $r['th_masuk']; ?></td></tr>
                     <?php
                     }
                     ?>
 				</table>
-				<br/>
+
+                <br/>
               <table id="mahasiswa" class="table table-striped table-bordered" >
-				<a button type="button" class="btn btn-info" href="nilai_tambah.php?nim=<?php echo  $nim; ?>" align='right'>Tambah Nilai</a>
 				<thead>
-				
-                    <tr>	  <th width="10%">NOMOR</th>
-						      
-							  <th width="10%">SEMESTER</th>
-							  <th width="10%">SKS</th>
-							  <th width="10%">IPS</th>
-							  <th width="15%">AKSI</th>
+                    <tr><th width="10%">NOMOR</th>		      
+						<th width="10%">SEMESTER</th>
+						<th width="10%">SKS</th>
+						<th width="10%">IPS</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php
+    
+    <?php
 
                     //Data mentah yang ditampilkan ke tabel    
 					require_once '../../koneksi.php';
@@ -104,11 +76,6 @@ $hapus = 1;
                         <td><?php echo  $r['semester']; ?></td>
                         <td><?php echo  $r['sks']; ?></td>
                         <td><?php echo  $r['ips']; ?></td>
-                        
-                        <td>  
-							
-                            <a button type="button" class="btn btn-warning" href="nilai_update.php?id_nilai=<?php echo $r['id_nilai']; ?>">Update</a> 
-                            <a button type="button" class="btn btn-danger" href="nilai_hapus.php?id_nilai=<?php echo  $r['id_nilai']; ?>" >Delete</a>
                         </td>
                     </tr>
                     <?php
@@ -123,9 +90,32 @@ $hapus = 1;
 						echo "hasil tidak ada";
 					}
 					?>
-            </table>  
-           <center> <a button type="button" class="btn btn-primary" href="cetak_nilaipermhs.php?nim=<?php echo $nim ?>" target="blank" >Cetak</a></center>
+            </table> 
+
+
+            <?php
+                $q1  ="select count(semester) nilai1 from nilai_semester where nim = '$nim'";
+                $q2  ="select sum(sks) nilai2 from nilai_semester where nim = '$nim'";
+                
+                
+                $h1 = mysqli_query($conn, $q1);
+                $h2 = mysqli_query($conn, $q2);
+
+                $r1 = mysqli_fetch_assoc($h1);
+                $r2 = mysqli_fetch_assoc($h2);
+                                     
+            ?>
+                <table>
+                    <tr align='left'>
+                        <th width="10%">TOTAL SEMESTER</th>
+                            <td width="20%"><?php echo  $r1['nilai1']; ?></td></tr>
+                    <tr>
+                        <th width="20%">TOTAL SKS</th>
+                            <td width="20%"><?php echo  $r2['nilai2']; ?></td></tr>
+            </table> 
         </div>
+  
+    <tbody>    
         
         <script src="../../assets/js/jquery-1.11.0.js"></script>
         <script src="../../assets/js/bootstrap.min.js"></script>

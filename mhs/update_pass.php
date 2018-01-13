@@ -30,37 +30,37 @@ return true;
 </script>
 
 
-<div class="container">
+
 <h2 align = 'center'>UBAH PASSWORD</h2>
-<table align="center" border="0" bgcolor="#00D07D"><tr><td>
-<form class="form-horizontal" method="post" action="simpan_pass.php" onKeyUp="highlight(event)" onClick="highlight(event)" onsubmit="return cek(this)">
-	  
-	  <div class="form-group">
+
+<form class="form-horizontal" method="post" action="simpan_pass.php" onsubmit="return cek(this)">   
+    
+    <div class="form-group">
         <label class="control-label col-sm-3" for="p_lama">PASSWORD LAMA:</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" type="" name="p_lama" maxlength="20" required/>
         </div>
       </div>
-	  
+    
       <div class="form-group">
         <label class="control-label col-sm-3" for="p_baru">PASSWORD BARU:</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" type="" name="p_baru" maxlength="20" required/>
+          <input type="password" class="form-control"  name="p_baru" maxlength="20" required/>
         </div>
       </div>
-	   
-	  <div class="form-group">
+     
+    <div class="form-group">
         <label class="control-label col-sm-3" for="p_ulang">ULANG PASSWORD:</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" type="" name="p_ulang" maxlength="20" required/>
+          <input type="password" class="form-control"  name="p_ulang" maxlength="20" required/>
         </div>
       </div>
 
-	  <label class="control-label col-sm-5" ></label>
+    <label class="control-label col-sm-5" ></label>
       <button type="submit" class="btn btn-success">Simpan</button>
       <button type="reset" class="btn btn-danger" >Reset</button>
-  </tr>
+
 
 </form>
-</table>
+
 </div>

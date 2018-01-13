@@ -1,6 +1,3 @@
-<?php
-include_once "../../cekadmin.php";
-?>
 <!doctype html>
 <html>
     <head>

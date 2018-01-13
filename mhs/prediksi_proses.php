@@ -59,48 +59,48 @@
         $loop+=1;
     };
            
-    $LT=mysqli_query($koneksi,"SELECT Status_Lulus,COUNT(Nama) Nilai 
-    FROM RangkingSementara 
-     WHERE Status_Lulus='LT' 
+$LT1=mysqli_query($koneksi,"SELECT A.Status_Lulus,COUNT(A.Nilai) Nilai 
+    FROM (SELECT Status_lulus,Status_lulus Nilai FROM RangkingSementara ORDER BY Jarak ASC LIMIT ".$nilaik." )A   WHERE A.Status_Lulus='LT'
+    GROUP BY Status_Lulus");
+    echo mysqli_error($koneksi);
+    $LL1=mysqli_query($koneksi,"SELECT A.Status_Lulus,COUNT(A.Nilai) Nilai 
+    FROM (SELECT Status_lulus,Status_lulus Nilai FROM RangkingSementara ORDER BY Jarak ASC LIMIT ".$nilaik." )A  WHERE A.Status_Lulus='LL'
+    GROUP BY Status_Lulus");
     
-     GROUP BY Status_Lulus 
-     LIMIT ".$nilaik);
-
-    $LL=mysqli_query($koneksi,"SELECT Status_Lulus,COUNT(Nama) Nilai 
-    FROM RangkingSementara  
-    WHERE Status_Lulus='LL' 
-    GROUP BY Status_Lulus ASC
-    LIMIT ".$nilaik);
+    $LC1=mysqli_query($koneksi,"SELECT A.Status_Lulus,COUNT(A.Nilai) Nilai 
+    FROM (SELECT Status_lulus,Status_lulus Nilai FROM RangkingSementara ORDER BY Jarak ASC LIMIT ".$nilaik." )A  WHERE A.Status_Lulus='LC'
+    GROUP BY Status_Lulus");  
     
-    $LC=mysqli_query($koneksi,"SELECT Status_Lulus,COUNT(Nama) Nilai 
-    FROM RangkingSementara  
-    WHERE Status_Lulus='LC' 
-    GROUP BY Status_Lulus ASC
-     LIMIT ".$nilaik);
-    
-    if (mysqli_num_rows($LT)!=0)
-    $LT=mysqli_fetch_assoc($LT);
-    mysqli_query($koneksi,"INSERT INTO Kesimpulan (Status_Lulus,Nilai) VALUES ('".$LT['Status_Lulus']."',".$LT['Nilai'].")");
-    if (mysqli_num_rows($LL)!=0)
-    $LL=mysqli_fetch_assoc($LL);
-    mysqli_query($koneksi,"INSERT INTO Kesimpulan (Status_Lulus,Nilai) VALUES ('".$LL['Status_Lulus']."',".$LL['Nilai'].")");
-    if (mysqli_num_rows($LC)!=0)
-    $LC=mysqli_fetch_assoc($LC);
+    if (mysqli_num_rows($LT1)!=0){
+    while ($LT=mysqli_fetch_assoc($LT1)){
+        mysqli_query($koneksi,"INSERT INTO Kesimpulan (Status_Lulus,Nilai) VALUES ('".$LT['Status_Lulus']."',".$LT['Nilai'].")");
+        }
+    }
+    if (mysqli_num_rows($LL1)!=0){
+    while ($LL=mysqli_fetch_assoc($LL1)){
+        mysqli_query($koneksi,"INSERT INTO Kesimpulan (Status_Lulus,Nilai) VALUES ('".$LL['Status_Lulus']."',".$LL['Nilai'].")");
+    }}
+    if (mysqli_num_rows($LC1)!=0){
+   while ($LC=mysqli_fetch_assoc($LC1)){
     mysqli_query($koneksi,"INSERT INTO Kesimpulan (Status_Lulus,Nilai) VALUES ('".$LC['Status_Lulus']."',".$LC['Nilai'].")");
+   }}
 
 
-	$namatraining=mysqli_fetch_assoc(mysqli_query($koneksi,"SELECT nama_mhs FROM Mahasiswa WHERE nim=".$nim.";"));
-    $kesimpulan=mysqli_fetch_assoc(mysqli_query($koneksi,"SELECT Status_Lulus FROM Kesimpulan ORDER BY Nilai DESC LIMIT 1"));
-    
-    echo "<div class='col-md-6 col-md-offset-3 well'>
+    $namatraining=mysqli_fetch_assoc(mysqli_query($koneksi,"SELECT nama_mhs FROM Mahasiswa WHERE nim=".$nim.";"));
+    $kesimpulan=mysqli_fetch_assoc(mysqli_query($koneksi,"SELECT max(Nilai) max FROM Kesimpulan"));
+    $kesimpulan=mysqli_fetch_assoc(mysqli_query($koneksi,"SELECT Status_Lulus FROM Kesimpulan WHERE Nilai=".$kesimpulan['max'].";"));
+    if(!$kesimpulan){
+        mysqli_errno($koneksi);
+    }    
+    echo "<div class='container'>
 	<center><h3 class='page-header'>KESIMPULAN HASIL PREDIKSI </h3></center>
-     <table class='table'>
+     <table class='table table-striped table-bordered'>
     <thead class='thead-light'>
       <tr>
         <th>NIM</th>
         <th>Nama Mahasiswa</th>
-		<th>Nilai K</th>
-        <th>KESIMPULAN</th>
+		    <th>Jumlah Tetangga Terdekat</th>
+        <th>Hasil Prediksi</th>
       </tr>
     </thead>
     <tbody>
@@ -128,11 +128,12 @@
     <br/>
      
     ";
+
 	
 	echo "
-    <div class='col-md-6 col-md-offset-3 well'>
+    <div class='container'>
 	<center><h3 class='page-header'>JARAK TERDEKAT </h3></center>
-    <table class='table table-bordered'>
+    <table class='table table-striped table-bordered'>
     <thead class='thead-light'>
       <tr>
         <th>Rangking</th>
@@ -149,8 +150,17 @@
         echo "<td>".$data."</td>
             <td>".$datarangking['Nama']."</td>
             <td>".$datarangking['Jarak']."</td>
-            <td>".$datarangking['Status_Lulus']."</td>";
-        echo "</tr>";
+            <td>" ;
+            if ($datarangking['Status_Lulus']=='LC'){
+                  echo 'LULUS CEPAT'; }                   
+            
+               IF($datarangking['Status_Lulus']=='LT'){
+                  echo 'LULUS TEPAT'; }
+                      
+                  IF($datarangking['Status_Lulus']=='LL'){
+                  echo 'LULUS LAMBAT'; }
+
+        echo "</td></tr>";
         $data+=1;
     };
     echo " </tbody></table>

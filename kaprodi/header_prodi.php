@@ -4,17 +4,13 @@ session_start();
 
 //cek apakah user sudah login
 if(!isset($_SESSION['username'])){
-    die("Anda belum login");	
+    header('Location:../index.php');
+    
 }
 ?>
 <html>
 <head>
 <title>HALAMAN KAPRODI</title>
-
-		<meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>HALAMAN KAPRODI</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -41,10 +37,10 @@ if(!isset($_SESSION['username'])){
             <a class="navbar-brand" href="#">
 				<?php
 				$nama = $_SESSION['nm_user'];
-                echo "<img style='height: 30px; margin-top: -5px;' src='../assets/img/icon/$nama.png' class='img-circle'>";
+                echo "<img style='height: 30px; margin-top: -5px;' src='../assets/img/icon/prodi.png' class='img-circle'>";
 				?> 
 				<div class="pull-left">
-				<p style="margin: -25px 40px 10px;">Selamat Datang Kaprodi : <i><?php echo $_SESSION['nm_user']; ?></i></p>
+				<p style="margin: -25px 40px 20px;"><i><?php echo $_SESSION['nm_user']; ?></i></p>
 				
 				</div>
             </a>
@@ -53,7 +49,9 @@ if(!isset($_SESSION['username'])){
         <div class="navbar-collapse collaps" id="bs-example-navbar-collapse-1">
         	
             <ul class="nav navbar-nav navbar-right">
-				<li></i></li>
+
+				<li><a href="halaman_prodi.php"> Dasboard</a></li>
+
 				<li class="c2 dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown">Dosen Wali<span class="caret"></span></a>
 				<ul class="dropdown-menu">

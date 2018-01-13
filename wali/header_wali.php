@@ -3,18 +3,14 @@ session_start();
 //cek apakah user sudah login
 if(!isset($_SESSION['username'])){
     die("Anda belum login");//
+
 }
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>Halaman Dosen Wali</title>
-
-		<meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Dosen DashBoard</title>
+<title>DOSEN WALI</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -41,10 +37,10 @@ if(!isset($_SESSION['username'])){
             <a class="navbar-brand" href="#">
 				<?php
 				$nama = $_SESSION['nm_user'];
-                echo "<img style='height: 30px; margin-top: -5px;' src='../assets/img/icon/$nama.png' class='img-circle'>";
+                echo "<img style='height: 30px; margin-top: -5px;' src='../assets/img/icon/wali.png' class='img-circle'>";
 				?> 
 				<div class="pull-left">
-				<p style="margin: -25px 40px 10px;">Anda Login sebagai Dosen : <i><?php echo $nama; ?></i></p>
+				<p style="margin: -25px 40px 10px;"><i><?php echo $nama; ?></i></p>
 				</div>
             </a>
         </div>
@@ -53,7 +49,7 @@ if(!isset($_SESSION['username'])){
         	
             <ul class="nav navbar-nav navbar-right">
 				<li></i></li>
-				<li><a href="halaman_wali.php.php"> Dasboard</a></li>
+				<li><a href="halaman_wali.php"> Dasboard</a></li>
 				
 				<li><a href="ganti_pass.php"> Ubah Password</a></li>
 				

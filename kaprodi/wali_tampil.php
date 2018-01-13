@@ -1,6 +1,5 @@
 <?php
 include_once 'header_prodi.php';
-include_once "../cekadmin.php";
 ?>
 <div class="container" style="margin-top:40px">
 <div id='content' >
@@ -44,7 +43,7 @@ $hapus = 1;
                         <td><?php echo  $r['id_wali']; ?></td>
                         <td><?php echo  $r['nama_wali']; ?></td>
                         <td>
-                          <a button type="button" class="btn btn-primary" href="wali_mhs.php?id_wali=<?php echo  $r['id_wali']; ?>">Daftar Mhs Bimbingan</a> 
+                          <a button type="button" class="btn btn-primary" href="wali_mhs.php?id_wali=<?php echo  $r['id_wali']; ?>">Mhs Bimbingan</a> 
                           
                         </td>
                     </tr>

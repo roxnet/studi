@@ -35,7 +35,6 @@
         <select class="form-control" name='id_wali' required>
             <?php
             include_once("../wali/crudWali.php");
-            include_once "../../cekadmin.php";
             $sql= "select * from wali";
             $data = bacaWali($sql);
             // sampe sini berarti berhasil query
@@ -51,26 +50,10 @@
         <div class="form-group">
         <label class="control-label col-sm-3" for="nama_mhs">Nama Mahasiswa:</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" type="" name="nama_mhs" maxlength="30" required/>
+          <input type="text" class="form-control" type="" name="nama_mhs" maxlength="40" required/>
         </div>
       </div>
 
-      <div class="form-group">
-        <label class="control-label col-sm-3" for="th_masuk">Tahun Masuk:</label>
-        <div class="col-sm-6">
-          <select class="form-control" name="th_masuk" required>
-            <option value="">Select tahun</option>
-            <?php
-            $thn_skr = date('Y');
-            for ($x = $thn_skr; $x >= 2007; $x--) {
-            ?>
-            <option value="<?php echo $x ?>"><?php echo $x ?></option>
-            <?php
-            }
-            ?>
-          </select>
-        </div>
-     </div>
 
       <div class="form-group">
         <label class="control-label col-sm-3" for="dosen">Status Kelulusan:</label>
@@ -85,7 +68,7 @@
         </div>
      </div>
      <label class="control-label col-sm-5" ></label>
-      <button type="submit" class="btn btn-success">Simpan</button>
+      <button type="submit" class = class="btn btn-success">Simpan</button>
       <button type="reset" class="btn btn-danger" >Reset</button>
     </form>  
   </div>

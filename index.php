@@ -33,8 +33,8 @@ include('login.php');
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                             <div class="form-top">
                                 <div class="form-top-left">
-                                    <h3>SILAKAN LOGIN</h3>
-                                    <p>Masukan Username, password dan level user anda</p>
+                                    <h3><b>FORM LOGIN </b></h3>
+                                    <p>Masukan Username dan Password</p>
                                 </div>
                                 <div class="form-top-right">
                                     <i class="fa fa-key"></i>
@@ -50,10 +50,9 @@ include('login.php');
                                         <label class="sr-only" for="form-password">Password</label>
                                         <input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
                                     </div>
-                                    <button type="submit" name="submit" class="btn">Log in!</button>
+                                    <button type="submit" name="submit" class="btn">Login</button>
                                     <?php echo $error; ?>
-									<h3>Belum Punya account ? silakan Daftar </h3>
-									<a button type="button" class="btn btn-primary" href="user_daftar.php">Daftar  </a>
+									
                                 </form>
                             </div>
                         </div>

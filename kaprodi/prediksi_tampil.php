@@ -1,6 +1,5 @@
 <?php
 include_once 'header_prodi.php';
-include_once "../cekadmin.php";
 ?>
 <div class="container" style="margin-top:40px">
 
@@ -11,9 +10,9 @@ include_once "../cekadmin.php";
                     <tr>
                         <th width="10%">NOMOR</th>
                         <th width="15%">NIM</th>
-                        <th width="15%">NILAI K</th>
+                        <th width="15%">NAMA MAHASISWA</th>
                         <th width="15%">HASIL PREDIKSI</th>
-                        <th width="20%">AKSI</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -22,7 +21,8 @@ include_once "../cekadmin.php";
                     //Data mentah yang ditampilkan ke tabel    
 					require_once '../koneksi.php';
                     $conn = koneksi();                   
-                    $sql ="SELECT * FROM prediksi";
+                    $sql ="SELECT * FROM prediksi inner join mahasiswa on mahasiswa.nim = prediksi.nim
+                    WHERE mahasiswa.status ='BL' ";
                     
 					$hasil = mysqli_query($conn, $sql);
 					if(mysqli_num_rows($hasil) > 0){
@@ -34,21 +34,18 @@ include_once "../cekadmin.php";
                     <tr align='left'>
                         <td><?php echo  $no;?></td>
                         <td><?php echo  $r['nim']; ?></td>
-                        <td><?php echo  $r['nilaiK']; ?></td>
+                        <td><?php echo  $r['nama_mhs']; ?></td>
                                               
-                        <?php if($r['hasil'] == 'LC') {
+                        <?php if($r['hasil_prediksi'] == 'LC') {
 									$pred = 'Lulus Cepat'; }
-									else if ($r['hasil'] == 'LT' ){
+									else if ($r['hasil_prediksi'] == 'LT' ){
 									$pred = 'Lulus Tepat waktu'; }
 										else {
 										$pred ='Belum Terlambat';
 										}
 									?>
                         <td><?php echo  $pred; ?></td>
-                        <td>
-                            
-                            <a button type="button" class="btn btn-danger" href="prediksi_hapus.php?nim=<?php echo  $r['nim']; ?>" >Delete</a>
-                        </td>
+                        
                     </tr>
                     <?php
                     $no++;

@@ -21,7 +21,7 @@
 <?php
 include ('crudMahasiswa.php');
 include ('crudNilai.php');
-include_once "../../cekadmin.php";
+
 $nim = $_GET['nim'];
 $data = cariMahasiswa($nim);
 ?>
@@ -64,7 +64,7 @@ $data = cariMahasiswa($nim);
       <label class="control-label col-sm-5" ></label>
       <button type="submit" class="btn btn-success">Simpan</button>
       <button type="reset" class="btn btn-danger" >Reset</button>
-      <button type="button" class="btn btn-warning" onclick='history.back()'>Kembali</button>
+      
     </form>  
   </div>
 

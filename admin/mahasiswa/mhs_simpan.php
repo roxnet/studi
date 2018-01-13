@@ -1,15 +1,21 @@
 <?php
-include_once "../../cekadmin.php";
 	include_once('crudMahasiswa.php');
-	$nim 		= $_REQUEST['nim'];
+	$nim 		= $_POST['nim'];
 	$id_wali 	= $_POST['id_wali'];
 	$nama_mhs 	= $_POST['nama_mhs'];
-	$th_masuk	= $_POST['th_masuk'];
+	
+	//buat fungsi 
+
+	$th 		=  substr($nim,0,2);
+ 	$th_masuk	 = "20" . $th;
+ 	
+
+	//$th_masuk	= $_POST['th_masuk'];
 	$status		= $_POST['status'];
 	
 	$dataValid ="ya";
 
-	echo $nim;
+
 	
 
 	$p ="Masih ada Kesalahan, silahkan perbaiki  \\n\\n";

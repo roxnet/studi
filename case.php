@@ -1,6 +1,8 @@
 <?php //DISINI UNTUK SET HALAMAN PHP
-
-		switch ($) {
+		$page = (isset($_GET['page']))? $_GET['page'] : "main";
+		switch ($page) {
+		
+		
 			
 			
 			case 'halaman_admin' : include "admin/halaman_admin.php"; break;

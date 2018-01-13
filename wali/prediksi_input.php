@@ -1,58 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 include_once 'header_wali.php';
-include_once "../cekadmin.php";
+$nim=$_GET['nim'];
 ?>
-<?php
-$nim = $_GET["nim"];
-?>
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Form Prediksi</title>
-    <!-- Bootstrap core CSS -->
-    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  </head>
-
-  <body>
-
-    <div class="container-">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="page-header"></h1>
-          <div class="row justify-content-md-center">
-           <div class="col-md-4 col-md-offset-4 well">
+<div class="container" style="margin-top:40px">
+<form class="form-horizontal">
               <div id="simpan"></div>
-              <center><h3 class="page-header">PERKIRAAN HASIL STUDI </h3></center>
+              <h3 align="center"> Perkiraan Masa Studi</h3>
               <div class="form-group">
-                <label for="nim">Data Testing</label>
-                <input type="text" value ="<?php echo $nim;?> "class="form-control" id="nim" name="nim" readonly>
-                
+                <label for="nim" class="control-label col-sm-3" >NIM  </label>
+                <div class="col-sm-6">
+                <input type="text" value ="<?php echo $nim ?> "class="form-control" id="nim" name="nim" readonly>
+                </div>
               </div>
               <div class="form-group">
-                <label for="sel1">Nilai K:</label>
+                <label for="nim" class="control-label col-sm-3" for="sel1">Nilai K:</label>
+                <div class="col-sm-6">
                 <select class="form-control" id="sel1" name="nilaik">
-                  <option value="5">5</option>
-                  <option value="15">15</option>
                   <option value="20">20</option>
                   <option value="25">25</option>
-                  <option value="40">40</option>
+                  <option value="30">30</option>
+                  
                 </select>
               </div>
+            </div>
                 <center><button id="hitung" type="button" class="btn btn-primary">HITUNG</button></center>
             </div>
             <!--munculkan hasil -->
             <div id="hasil">
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- /.container -->
+         
 
     <!-- Bootstrap core JavaScript -->
     <script src="../assets/js/jquery-1.12.3.min.js"></script>
@@ -72,11 +48,22 @@ $nim = $_GET["nim"];
             });
           });
         
-      });
-
-
-              
-    </script>
-  </body>
-
+      });              
+    </script>  
+</div>
+</body>
 </html>
+<script>
+$(document).ready(function(){
+$(".dropdown").hover(            
+function() {
+$('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+$(this).toggleClass('open');        
+},
+function() {
+$('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+$(this).toggleClass('open');       
+}
+);
+});
+</script>

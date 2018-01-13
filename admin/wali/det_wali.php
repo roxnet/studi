@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
     <head>
@@ -21,7 +20,6 @@
 
 
 <?php
-include_once "../../cekadmin.php";
 $id_wali = $_GET['id_wali'];
 echo $id_wali;
 if(array_key_exists('hapus', $_GET))

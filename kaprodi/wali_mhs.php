@@ -18,6 +18,9 @@ $id_wali = $_GET['id_wali'];
       echo "<span style ='color :red'>gagal hapus data hotel</span>";
       
   ?>
+
+              
+
               <table id="mahasiswa" class="table table-striped table-bordered" >
                 <thead>
                     <tr>

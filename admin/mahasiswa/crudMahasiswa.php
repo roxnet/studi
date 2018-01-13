@@ -1,6 +1,6 @@
 <?php
 require_once '../../koneksi.php';
-include_once "../../cekadmin.php";
+
 // jika berhasil, hasil array dr baris-baris data
 // dan setiap baris data berupa array dari nama-nama field
 // jika tidak ada, hasil berupa nilai null
@@ -107,4 +107,4 @@ function ubahMahasiswa($nim, $id_wali, $nama_mhs, $th_masuk, $status){
   return $hasil;
 }
 
-?>
+

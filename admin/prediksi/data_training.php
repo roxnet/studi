@@ -12,7 +12,7 @@
           <a class="navbar-brand" href="#" style="color: white;" align="center"><b>Data Training</b></a>
         </div>
         <p class="navbar-text navbar-right hidden-xs" style="color: white;padding-right: 10px;">
-        <a class="navbar-text navbar-right hidden-xs" style="color: white;padding-right: 10px" href="../halaman_admin.php">KEMBALI</a>   
+        <a class="navbar-text navbar-right hidden-xs" style="color: white;padding-right: 10px" onclick='history.back()'>Kembali</a>   
 
         </p>
       </div>
@@ -36,7 +36,6 @@
                     <?php
 
                     require_once '../../koneksi.php';
-                    include_once "../../cekadmin.php";
                     $conn = koneksi();                   
                     $sql ="select mahasiswa.* , wali.* from mahasiswa 
 							inner join wali on mahasiswa.id_wali = wali.id_wali
@@ -66,7 +65,7 @@
 									?>
                         <td><?php echo  $status; ?></td>
                         <td>
-                            <a button type="button" class="btn btn-primary" href="nilai_permhs.php?nim=<?php echo  $r['nim']; ?>">Detail  </a>
+                            <a button type="button" class="btn btn-primary" href="../mahasiswa/nilai_permhs.php?nim=<?php echo  $r['nim']; ?>">Detail  </a>
                         </td>
                     </tr>
 					<?php

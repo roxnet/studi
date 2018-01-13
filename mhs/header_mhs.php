@@ -1,9 +1,10 @@
 <?php
 session_start();
-include_once "../cekadmin.php";
+
 //cek apakah user sudah login
 if(!isset($_SESSION['username'])){
-    die("Anda belum login");	
+    
+    header('Location:../index.php');
 }
 ?>
 
@@ -44,7 +45,7 @@ if(!isset($_SESSION['username'])){
 				
 				$nama = $_SESSION['nm_user'];
 				
-                echo "<img style='height: 30px; margin-top: -5px;' src='../assets/img/icon/$nama.png' class='img-circle'>";
+                echo "<img style='height: 30px; margin-top: -5px;' src='../assets/img/icon/mahasiswa.png' class='img-circle'>";
 				?> 
 				<div class="pull-left">
 				<p style="margin: -25px 40px 10px;">Selamat Datang <i><?php echo $_SESSION['nm_user']; ?></i></p>
@@ -57,6 +58,7 @@ if(!isset($_SESSION['username'])){
             <ul class="nav navbar-nav navbar-right">
 				<li><a href="halaman_mhs.php">Home</a></li>
 				<li><a href="nilai_tampil.php">Daftar Nilai</a></li>
+                <li><a href="prediksi_hasil.php"> Prediksi</a></li>
 				<li><a href="update_pass.php">Ubah Password</a></li>
 		        <li><a href="../logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>

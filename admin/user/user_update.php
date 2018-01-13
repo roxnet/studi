@@ -1,6 +1,6 @@
 <?php
 include ('crudUser.php');
-include_once "../../cekadmin.php";
+
 $id_user = $_GET['id_user'];
 $data = cariUser($id_user);
 ?>
@@ -77,7 +77,7 @@ $data = cariUser($id_user);
 	  <label class="control-label col-sm-5" ></label>
       <button type="submit" name ='update' value="update" class="btn btn-success">Update</button>
       <button type="reset"  name ='reset' class="btn btn-danger" >Reset</button>
-      <button type="button" class="btn btn-warning" onclick='history.back()'>Kembali</button>
+      
 </form>
 </div>
 

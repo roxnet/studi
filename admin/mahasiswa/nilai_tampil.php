@@ -19,7 +19,6 @@
     </nav>
         <div class="container">
 <?php
-include_once "../../cekadmin.php";
 if(array_key_exists('hapus', $_GET))
 $hapus = $_GET['hapus'];
 else

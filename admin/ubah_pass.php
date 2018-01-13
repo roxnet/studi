@@ -1,6 +1,6 @@
 <?php
 include "../../include/conf_user.php";
-include_once "../cekadmin.php";
+
 $lama = md5($_POST['p_lama']);
 $baru = md5($_POST['p_baru']);
 

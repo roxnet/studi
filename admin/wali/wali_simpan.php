@@ -1,6 +1,5 @@
 <?php
 include('../../koneksi.php');
-include_once "../../cekadmin.php";
 $conn = koneksi();
 
 $id_wali 	= $_POST['id_wali'];

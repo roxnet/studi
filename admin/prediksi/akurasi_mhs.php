@@ -1,10 +1,10 @@
 <div class="form-group">
-    <label for="nim">Data Testing Akurasi</label>
+    <label class="control-label col-sm-3" for="nim">Data Testing Akurasi</label>
+ <div class="col-sm-6">
     <select class="form-control" id="nim" name="nim">
 <?php
 include_once "../../koneksi.php";
     $koneksi=koneksi();
-    include_once "../../cekadmin.php";
      $thnmsk=$_POST['thnmsk'];
 $datatesting=mysqli_query($koneksi,"SELECT nim,nama_mhs,status FROM Mahasiswa WHERE th_masuk=$thnmsk ORDER BY nim;");
 
@@ -18,4 +18,5 @@ echo "
 ?>    
     </select>
 </div> 
+</div>
     

@@ -1,6 +1,5 @@
 <?php
 include_once 'header_wali.php';
-include_once "../cekadmin.php";
 ?>
 <div class="container" style="margin-top:40px">
   <h2 align = 'center'>Data Testing</h2>
@@ -14,7 +13,7 @@ include_once "../cekadmin.php";
                         <th width="15%">NAMA MAHASISWA</th>
                         <th width="15%">TAHUN MASUK</th>
 						<th width="15%">STATUS KELULUSAN</th>
-                        <th width="20%">AKSI</th>
+                        <th width="15%">AKSI</th>
                  
                     </tr>
                 </thead>
@@ -55,7 +54,7 @@ include_once "../cekadmin.php";
                         <td>
                             <a button type="button" class="btn btn-primary" href="nilai_permhs.php?nim=<?php echo  $r['nim']; ?>">Detail  </a>
                             <a button type="button" class="btn btn-warning" href="prediksi_input.php?nim=<?php echo  $r['nim']; ?>">Prediksi</a>  
-                            <a button type="button" class="btn btn-danger" href="mhs_hapus.php?nim=<?php echo  $r['nim']; ?>" >Delete</a>
+                            
                         </td>
                     </tr>
 					<?php

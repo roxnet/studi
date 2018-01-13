@@ -1,6 +1,6 @@
 <?php
 require_once '../../koneksi.php';
-include_once "../../cekadmin.php";
+
 // jika berhasil, hasil array dr baris-baris data
 // dan setiap baris data berupa array dari nama-nama field
 // jika tidak ada, hasil berupa nilai null
@@ -32,14 +32,12 @@ function bacaUser($sql){
 
 // menambahkan data ke tabel user
 
-function tambahUser( $nm_user, $username, $password, $level){
-  
+function tambahUser($id_user, $nm_user, $username, $password, $level){
   $koneksi = koneksi();
-  $sql = "insert into user(nm_user,username,password,level) values( '$nm_user', '$username', '$password', '$level')";
+  $sql = "insert into user values('$id_user', '$nm_user', '$username', '$password', '$level')";
   $hasil = 0;
   if(mysqli_query($koneksi, $sql))
     $hasil = 1;
-    else echo mysqli_error($koneksi);
   mysqli_close($koneksi);
   return $hasil;
 }

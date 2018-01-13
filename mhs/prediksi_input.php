@@ -1,29 +1,8 @@
-
-
-
 <?php
-
 $nim=$_GET['nim'];
+
+include_once "header_mhs.php";
 ?>
-
-<html>
-    <head>
-        <title>HALAMAN PREDIKSI ADMIN</title>
-        <link rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="../../assets/css/dataTables.bootstrap.css"/>
-    </head> 
-    <body>
-        <nav class="navbar navbar-inverse" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          
-        </div>
-        <p class="navbar-text navbar-right hidden-xs" style="color: white;padding-right: 10px;">
-        <a class="navbar-text navbar-right hidden-xs" style="color: white;padding-right: 10px" href="../halaman_admin.php">KEMBALI</a>   
-
-        </p>
-      </div>
-    </nav>
 
 <div class="container" style="margin-top:40px">
 <form class="form-horizontal">
@@ -36,14 +15,13 @@ $nim=$_GET['nim'];
                 </div>
               </div>
               <div class="form-group">
-                <label for="nim" class="control-label col-sm-3" for="sel1">Nilai K:</label>
+                <label for="nim" class="control-label col-sm-3" for="sel1">Tetangga Terdekat:</label>
                 <div class="col-sm-6">
                 <select class="form-control" id="sel1" name="nilaik">
-                  <option value="5">5</option>
-                  <option value="15">15</option>
                   <option value="20">20</option>
-          <option value="20">25</option>
-          <option value="20">30</option>                  
+				          <option value="25">25</option>
+                  <option value="30">30</option>
+				          
                 </select>
               </div>
             </div>

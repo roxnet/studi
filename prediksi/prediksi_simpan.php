@@ -1,5 +1,6 @@
 <?php
 include_once "../koneksi.php";
+session_start() ;
 
     $nim=$_POST["nim"];
     $hasil=$_POST['hasil'];
@@ -13,7 +14,17 @@ include_once "../koneksi.php";
     	$simpan=mysqli_query($koneksi,"INSERT INTO PREDIKSI (nim, nilaik, hasil_prediksi) VALUES (".$nim.",'".$nilaik."','".$hasil."')");
 	}
 		if($simpan){
-			echo "<div class='alert alert-success' role='alert'>DATA BERHASIL DISIMPAN</div>";
+			echo "data berhasil disimpan";
+			
+			if ($_SESSION['level'] == 2) {
+				header("Location: ../kaprodi/prediksi_hasil.php");
+				}
+			if ($_SESSION['level'] == 3) {
+			header("Location: ../wali/prediksi_hasil.php");
+				}
+			if ($_SESSION['level'] == 4) {
+			header("Location: ../mhs/prediksi_hasil.php");
+				}
 			
 		}
 		else{

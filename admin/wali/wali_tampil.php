@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+//cek apakah user sudah login
+if(!isset($_SESSION['username'])){
+    header('Location:../../index.php');
+}
+?>
+
+
+
 <!doctype html>
 <html>
     <head>
@@ -20,7 +31,6 @@
         <div class="container">
 
 <?php
-include_once "../../cekadmin.php";
 if(array_key_exists('hapus', $_GET))
 $hapus = $_GET['hapus'];
 else

@@ -50,8 +50,7 @@ $hapus = 1;
 
                     //Data mentah yang ditampilkan ke tabel    
 					require_once '../../koneksi.php';
-                    $conn = koneksi();          
-                    include_once "../../cekadmin.php";         
+                    $conn = koneksi();                   
                     $sql ="select mahasiswa.* , wali.* from mahasiswa inner join wali on mahasiswa.id_wali = wali.id_wali";
                     
 					$hasil = mysqli_query($conn, $sql);

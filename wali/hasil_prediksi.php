@@ -2,18 +2,18 @@
 include_once 'header_wali.php';
 ?>
 <div class="container">
-  <h2 align = 'center'>Data Teting</h2>
+  <h2 align = 'center'>HASIL PREDIKSI MAHASISWA BIMBINGAN</h2>
 <div id='content' >
-  <h2 align = 'center'>Data Testing</h2>
+  <h2 align = 'center'>HASIL PREDIKSI MAHASISWA BIMBINGAN</h2>
  <table id="wali" class="table table-striped table-bordered" >
                 <thead>
                     <tr>
                         <th width="5%">NOMOR</th>
 						<th width="10%">NIM</th>
-						<th width="15%">NAMA DOSEN WALI</th>
-                        <th width="15%">NAMA MAHASISWA</th>
-                        <th width="15%">TAHUN MASUK</th>
+                        <th width="10%">NAMA MAHASISWA</th>
+                        <th width="10%">NILAI K</th>
 						<th width="15%">HASIL PREDIKSI</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -25,7 +25,7 @@ include_once 'header_wali.php';
                     $sql ="select mahasiswa.* , wali.* , prediksi.* from mahasiswa 
 							inner join wali on mahasiswa.id_wali = wali.id_wali
 							inner join prediksi on prediksi.nim = mahasiswa.nim
-							where status NOT LIKE '%BL' AND wali.id_wali = '$dosen'";
+							where status LIKE '%BL' AND wali.id_wali = '$dosen'";
                     
 					$hasil = mysqli_query($conn, $sql);
 					$no = 1;
@@ -36,13 +36,12 @@ include_once 'header_wali.php';
 				<tr align='left'>
                         <td><?php echo  $no;?></td>
                         <td><?php echo  $r['nim']; ?></td>
-                        <td><?php echo  $r['nama_wali']; ?></td>
                         <td><?php echo  $r['nama_mhs']; ?></td>
+                        <td><?php echo  $r['nilaiK']; ?></td>
+                        
                         <td><?php echo  $r['hasil_prediksi']; ?></td>
-                        <td><?php echo  $r['status']; ?></td>
-                        <td>
-                            <a button type="button" class="btn btn-primary" href="nilai_permhs.php?nim=<?php echo  $r['nim']; ?>">Detail  </a>
-                        </td>
+                        
+                        
                     </tr>
 					<?php
                     $no++;

@@ -1,6 +1,5 @@
 <?php
 include_once 'header_prodi.php';
-include_once "../cekadmin.php";
 ?>
 <div class="container" style="margin-top:40px">
 
