@@ -1,4 +1,8 @@
 <!doctype html>
+<?php
+include_once('../cekadmin.php');
+?>
+
 <html>
     <head>
         <title>Input Mahasiswa</title>
@@ -12,7 +16,7 @@
           <a class="navbar-brand" href="#" style="color: white;" align="center"><b>Form Input Data Mahasiswa</b></a>
         </div>
         <p class="navbar-text navbar-right hidden-xs" style="color: white;padding-right: 10px;">
-        <a class="navbar-text navbar-right hidden-xs" style="color: white;padding-right: 10px" href="../halaman_admin.php">KEMBALI</a>   
+        <a class="navbar-text navbar-right hidden-xs" style="color: white;padding-right: 10px" href="../halaman_admin.php">Dasboard</a>   
 
         </p>
       </div>
@@ -68,7 +72,7 @@
         </div>
      </div>
      <label class="control-label col-sm-5" ></label>
-      <button type="submit" class = class="btn btn-success">Simpan</button>
+      <button type="submit" class="btn btn-success">Simpan</button>
       <button type="reset" class="btn btn-danger" >Reset</button>
     </form>  
   </div>

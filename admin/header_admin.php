@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['username'])) {
-header('location:login.php'); }
+header('location:../index.php'); }
 else { $username = $_SESSION['username'];
 }
 ?>
@@ -56,13 +56,14 @@ else { $username = $_SESSION['username'];
 						<a class="dropdown-toggle" data-toggle="dropdown">Mahasiswa<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="mahasiswa/mhs_tampil.php">Daftar Mahasiswa</a></li>
-							<li><a href="mahasiswa/mhs_tambah.php">Input Mahasiswa</a></li>
+							<li><a href="mahasiswa/mhs_tambah.php">Tambah Mahasiswa</a></li>
 						</ul>
 					</li>
 					<li class="c2 dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown">Nilai<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="mahasiswa/nilai_tampil.php">Daftar Nilai</a></li>
+							
 						</ul>
 					</li>
 					<li class="c2 dropdown">
