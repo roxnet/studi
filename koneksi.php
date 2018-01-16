@@ -2,7 +2,7 @@
 function koneksi(){
 	$servername = "localhost";
 	$username 	= "root";
-	$password 	= "root";
+	$password 	= "";
 	$db 		= "kelulusan";
 
 	// menciptakan koneksi

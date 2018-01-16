@@ -1,13 +1,15 @@
 <?php
-    include_once "../koneksi.php";
+     include_once "../koneksi.php";
 
     $nim=$_POST["nim"];
     $nilaik=$_POST["nilaik"];
     $koneksi=koneksi();
+    $datatesting1=mysqli_query($koneksi,"SELECT status FROM Mahasiswa WHERE nim=$nim ORDER BY nim;");
+    $history=mysqli_fetch_assoc($datatesting1);
     //proses hitungan mengolah rumus prediksi
 
      //totalmahasiswa yang training
-    $querymahasiswalulus=mysqli_query($koneksi,"SELECT nim FROM Mahasiswa WHERE status IN('LL','LT','LC')  ORDER BY nim;");
+    $querymahasiswalulus=mysqli_query($koneksi,"SELECT nim FROM Mahasiswa WHERE status IN('LL','LT','LC') AND nim<>$nim ORDER BY nim;");
     $totalmahasiswalulus=mysqli_num_rows($querymahasiswalulus);
 
     
@@ -15,7 +17,7 @@
     $jumlahsemester=mysqli_query($koneksi,"SELECT MAX(semester) as jumsemester FROM nilai_semester WHERE nim=".$nim."");
     $jumsemester=mysqli_fetch_assoc($jumlahsemester);
 
-     //diambil setiap nim mahasiswa training
+     //diambil setiap nim mahasiswa trainig
       $dataarray=array();
           while  ($getnimmahasiswa=mysqli_fetch_assoc($querymahasiswalulus)){
             $dataarray[]=$getnimmahasiswa['nim'];
@@ -42,7 +44,7 @@
 
         $rumus=NULL;
         //rumus untuk perpangkatan sks+ips
-        $rumus=SQRT($rumuspangkat+POW($totalskstesting['sks']-$totalskstraning['sks'],2));
+        $rumus=SQRT($rumuspangkat+POW($totalskstraining['sks']-$totalskstesting['sks'],2));
 
         //mendapatkan nama mahasiswa dan Status lulus*/
         $nama_mhs=mysqli_fetch_assoc(mysqli_query($koneksi," SELECT nama_mhs FROM Mahasiswa WHERE nim=".$dataarray[$minout-1].";"));
@@ -92,14 +94,16 @@
     if(!$kesimpulan){
         mysqli_errno($koneksi);
     }
-    echo "<div class='col-md-6 col-md-offset-3 well'>
-     <table class='table'>
-    <thead class='thead-light'>
+    echo "
+    <div class='container'>
+     <table class='table table-striped table-bordered'>
+    <thead>
       <tr>
         <th>NIM</th>
         <th>Nama Mahasiswa</th>
-		<th>Nilai K</th>
+		    <th>Nilai K</th>
         <th>KESIMPULAN</th>
+        <th>HISTORY</th>
       </tr>
     </thead>
     <tbody>
@@ -120,39 +124,15 @@
     echo 'LULUS LAMBAT';
     echo "<span class='invisible' id='hasil_data'>LL</span>";
 }
+    echo "</td>
+    <td><span id='history'>".$history['status']."</span></td>";
     echo " </tr></tbody></table>
      <center><button id='sim' type='button' class='btn btn-primary'>SIMPAN</button></center>
+    </div>
     </div>
     <br/>
      
     ";
-	
-	echo "
-    <div class='col-md-6 col-md-offset-3 well'>
-    <table class='table table-bordered'>
-    <thead class='thead-light'>
-      <tr>
-        <th>Rangking</th>
-        <th>Nama Mahasiswa</th>
-        <th>Nilai jarak</th>
-        <th>Status Lulus</th>
-      </tr>
-    </thead>
-    <tbody>";
-     $rangking=mysqli_query($koneksi,"SELECT Nama,Jarak,Status_Lulus FROM RangkingSementara ORDER BY Jarak ASC LIMIT ".$nilaik.";") or die(mysqli_errno($koneksi));
-    $data=1;
-    while($datarangking=mysqli_fetch_assoc($rangking)){
-        echo "<tr>";
-        echo "<td>".$data."</td>
-            <td>".$datarangking['Nama']."</td>
-            <td>".$datarangking['Jarak']."</td>
-            <td>".$datarangking['Status_Lulus']."</td>";
-        echo "</tr>";
-        $data+=1;
-    };
-    echo " </tbody></table>
-    </div>";
-    mysqli_close($koneksi);
 ?>
 
 <script>
@@ -165,15 +145,20 @@
 			  var nilaik=<?php echo $nilaik; ?> ;
             $.ajax({
               type: "POST",
-              url: "prediksi_simpan.php",
-              data: 'nim=' + nim + '&nama=' + nama +'&nilaik='+nilaik +'&hasil='+ hasil ,
+              url: "akurasi_simpan.php",
+              data: 'nim=' + nim + '&nama=' + nama +'&nilaik='+nilaik +'&hasil='+ hasil +'&history='+history,
               success: function (respons) {
+                  if(respons=='berhasil')
+                  {
+                  window.location.replace("akurasi_hasil.php?nim="+nim);
+                  }
+                  else{
                 $('#simpan').html(respons);
                 $('html, body').animate({
         scrollTop: $("#hasil").offset().top
     }, 1000);
               }
-
+              }
              });
            });
         
