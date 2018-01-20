@@ -11,7 +11,7 @@ $query = mysqli_fetch_array(mysqli_query($conn, "SELECT password FROM user WHERE
 if($query['password']==$lama){
 $sql = mysqli_query($conn, "UPDATE user SET password='$baru' WHERE username = '$username'");
 echo "<script>alert('Password sudah diganti ^_^ ')</script>";
-	  header('Location:halaman_mhs.php');
+	  header('Location:halaman_wali.php');
 }else{
 echo "<script>alert('Password lama tidak sesuai!')</script>";
 }

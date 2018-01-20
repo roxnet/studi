@@ -2,7 +2,7 @@
 include_once 'header_wali.php';
 ?>
 <div class="container" style="margin-top:40px">
-  <h2 align = 'center'>Data Training</h2>
+  <h2 align = 'center'>Daftar Mahasiswa Lulus (Training)</h2>
  <table id="wali" class="table table-striped table-bordered" >
                 <thead>
                     <tr>
@@ -24,7 +24,7 @@ include_once 'header_wali.php';
                     $conn = koneksi();                   
                     $sql ="select mahasiswa.* , wali.* from mahasiswa 
 							inner join wali on mahasiswa.id_wali = wali.id_wali
-							where status NOT LIKE '%BL'";
+							where status <> '%BL' AND wali.id_wali = $dosen";
                     
 					$hasil = mysqli_query($conn, $sql);
 					$no = 1;

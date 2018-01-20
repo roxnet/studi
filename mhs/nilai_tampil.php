@@ -3,7 +3,7 @@ include_once "header_mhs.php";
 ?>
 
 <div class="container" style="margin-top:40px">
-<h2 align = 'center'>DAFTAR NILAI</h2>
+<h2 align = 'center'>DAFTAR NILAI SEMESTER</h2>
 	<tbody>
                     <?php
 
@@ -42,7 +42,6 @@ include_once "header_mhs.php";
 				<thead>
 				
                     <tr>	  <th width="10%">NOMOR</th>
-						      
 							  <th width="10%">SEMESTER</th>
 							  <th width="10%">SKS</th>
 							  <th width="10%">IPS</th>
@@ -78,7 +77,20 @@ include_once "header_mhs.php";
                     }
                     ?>
                 </tbody>
-            </table>  
+            </table>
+
+            <?php
+                
+                $q2  ="select sum(sks) nilai2 from nilai_semester where nim = '$username'";
+                $h2 = mysqli_query($conn, $q2);
+                $r2 = mysqli_fetch_assoc($h2);
+                                     
+            ?>
+                <table>
+                    <tr>
+                        <th width="20%">TOTAL SKS</th>
+                            <td width="20%"><?php echo  $r2['nilai2']; ?></td></tr>
+            </table>   
         </div>
         
         

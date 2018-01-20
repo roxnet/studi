@@ -5,7 +5,7 @@ include_once 'header_prodi.php';
 
   <div id='content' >
   <br/>
-  <h2 align = 'center'>Data Testing</h2><br/>
+  <h2 align = 'center'>Daftar Mahasiswa Aktif (Testing)</h2>
  <table id="wali" class="table table-striped table-bordered" >
                 <thead>
                     <tr>
@@ -54,8 +54,20 @@ include_once 'header_prodi.php';
                         <td><?php echo  $status; ?></td>
                         <td>
                             <a button type="button" class="btn btn-primary" href="nilai_permhs.php?nim=<?php echo  $r['nim']; ?>">Detail  </a>
+                        <?php
+                            $nim =$r['nim'];
+                            $jumsemester = mysqli_query($conn, "SELECT max(semester) semester from nilai_semester
+                                where nim = '$nim'");
+                            $jumlah = mysqli_fetch_array($jumsemester);
+                            if($jumlah['semester'] == 4){
+                        ?>
                             <a button type="button" class="btn btn-warning" href="prediksi_input.php?nim=<?php echo  $r['nim']; ?>">Prediksi</a>  
+                        
+                        <?php
+                        }else {echo "data nilai semester belum lengkap"; }
+                        ?>
                         </td>
+
                     </tr>
 					<?php
                     $no++;

@@ -8,9 +8,7 @@
     <body>
         <nav class="navbar navbar-inverse" role="navigation">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#" style="color: white;" align="center"><b>Data Training</b></a>
-        </div>
+        
         <p class="navbar-text navbar-right hidden-xs" style="color: white;padding-right: 10px;">
         <a class="navbar-text navbar-right hidden-xs" style="color: white;padding-right: 10px" onclick='history.back()'>Kembali</a>   
 
@@ -18,7 +16,7 @@
       </div>
     </nav>
         <div class="container">
-
+<h2 align = 'center'>Daftar Mahasiswa Lulus (Training)</h2><br/>
  <table id="wali" class="table table-striped table-bordered" >
                 <thead>
                     <tr>

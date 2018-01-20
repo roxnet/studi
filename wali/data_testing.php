@@ -2,7 +2,7 @@
 include_once 'header_wali.php';
 ?>
 <div class="container" style="margin-top:40px">
-  <h2 align = 'center'>Data Testing</h2>
+  <h2 align = 'center'>Daftar Mahasiswa Aktif (Testing)</h2>
 
  <table id="wali" class="table table-striped table-bordered" >
                 <thead>
@@ -31,12 +31,14 @@ include_once 'header_wali.php';
 					$hasil = mysqli_query($conn, $sql);
 					$no = 1;
                     while ($r = mysqli_fetch_array($hasil)) {
+                        $nim = $r['nim'];
                                      
                     ?>                 
                     
 				<tr align='left'>
                         <td><?php echo  $no;?></td>
                         <td><?php echo  $r['nim']; ?></td>
+
                         <td><?php echo  $r['nama_wali']; ?></td>
                         <td><?php echo  $r['nama_mhs']; ?></td>
                         <td><?php echo  $r['th_masuk']; ?></td>
@@ -53,8 +55,17 @@ include_once 'header_wali.php';
                         <td><?php echo  $status; ?></td>
                         <td>
                             <a button type="button" class="btn btn-primary" href="nilai_permhs.php?nim=<?php echo  $r['nim']; ?>">Detail  </a>
+                        <?php
+                            $jumsemester = mysqli_query($conn, "SELECT max(semester) semester from nilai_semester
+                                where nim = '$nim'");
+                            $jumlah = mysqli_fetch_array($jumsemester);
+                            if($jumlah['semester'] == 4){
+                        ?>
                             <a button type="button" class="btn btn-warning" href="prediksi_input.php?nim=<?php echo  $r['nim']; ?>">Prediksi</a>  
-                            
+                        
+                        <?php
+                        }else {echo "data nilai semester belum lengkap"; }
+                        ?>
                         </td>
                     </tr>
 					<?php

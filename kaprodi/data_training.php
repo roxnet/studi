@@ -5,7 +5,7 @@ include_once 'header_prodi.php';
 
   <div id='content' >
   <br/>
-	<h2 align = 'center'>Data Training</h2>
+	<h2 align = 'center'>Daftar Mahasiswa Lulus (Training)</h2>
  <table id="wali" class="table table-striped table-bordered" >
                 <thead>
                     <tr>

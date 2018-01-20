@@ -118,9 +118,23 @@ include_once "header_mhs.php";
                     ?>
                 </tbody>
             </table>
+             
+        
+           
+             <?php
+             
+             $jumsemester = mysqli_query($conn, "SELECT max(semester) semester from nilai_semester
+              where nim = '$username'");
+              $jumlah = mysqli_fetch_array($jumsemester);
+              if($jumlah['semester'] == 4){
+              ?>
             <a button type="button" class="btn btn-warning" href="prediksi_input.php?nim=<?php echo  $username; ?>">Prediksi</a>  
-
-
-        </div>
+                        
+                        <?php
+                        }else {echo "Belum Bisa melakukan proses prediksi";
+                                echo "Harus ada data nilai semester 1 sampai 4";
+                         }
+                        ?>
+      
         
-        
+</div>

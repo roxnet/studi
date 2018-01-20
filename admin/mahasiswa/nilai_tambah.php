@@ -24,6 +24,7 @@ include ('crudNilai.php');
 include_once('../cekadmin.php');
 
 $nim = $_GET['nim'];
+echo $nim;
 $data = cariMahasiswa($nim);
 ?>
 <div class="container">
@@ -32,7 +33,14 @@ $data = cariMahasiswa($nim);
       <div class="form-group">
         <label class="control-label col-sm-3" for="nim">NIM:</label>
         <div class="col-sm-6">
-          <input  class="form-control" type="text" name="nim" maxlength="9" value='<?php echo $data['nim']; ?>'/>
+          <input  class="form-control" type="text" name="nim" maxlength="9" value='<?php echo $nim; ?>' readonly/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="nim">NAMA MAHASISWA:</label>
+        <div class="col-sm-6">
+          <input  class="form-control" type="text" value='<?php echo $data['nama_mhs']; ?>' readonly />
         </div>
       </div>
 
@@ -49,10 +57,20 @@ $data = cariMahasiswa($nim);
         </div>
      </div>
 
+     <script language='javascript'>
+      function validAngka(a)
+      {
+        if(!/^[0-9.]+$/.test(a.value))
+        {
+        a.value = a.value.substring(0,a.value.length-1000);
+        }
+      }
+      </script>
+
       <div class="form-group">
         <label class="control-label col-sm-3" for="sks">SKS:</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" type="" name="sks" maxlength="3" required/>
+          <input type="text" class="form-control" onkeyup='validAngka(this)' name="sks" maxlength="2" required/>
         </div>
       </div>
 

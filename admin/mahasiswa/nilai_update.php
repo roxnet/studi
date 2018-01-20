@@ -1,6 +1,7 @@
 <?php
 include ('crudNilai.php');
 include_once('../cekadmin.php');
+
 $id_nilai = $_GET['id_nilai'];
 $data = cariNilai($id_nilai);
 ?>
@@ -50,17 +51,27 @@ $data = cariNilai($id_nilai);
   		</div>
   </div>
 
+<script language='javascript'>
+      function validAngka(a)
+      {
+        if(!/^[0-9.]+$/.test(a.value))
+        {
+        a.value = a.value.substring(0,a.value.length-1000);
+        }
+      }
+      </script>
+
 <div class="form-group">
         <label class="control-label col-sm-3" for="sks">SKS:</label>
         <div class="col-sm-6">
-          <input  class="form-control" type="text" name="sks" maxlength="9" value='<?php echo $data['sks'];?>' required/>
+          <input  class="form-control" type="text" onkeyup='validAngka(this)' name="sks" maxlength="2" value='<?php echo $data['sks'];?>' required/>
         </div>
       </div>
 
 <div class="form-group">
         <label class="control-label col-sm-3" for="ips">IPS:</label>
         <div class="col-sm-6">
-          <input  class="form-control" type="text" name="ips" maxlength="9" value='<?php echo $data['ips'];?>' required/>
+          <input  class="form-control" type="text" name="ips" maxlength="4" value='<?php echo $data['ips'];?>' required/>
         </div>
       </div>
 

@@ -22,7 +22,7 @@
 
   <div id='content' >
   <br/>
-  <h2 align = 'center'>Data Testing</h2><br/>
+  <h2 align = 'center'>Daftar Mahasiswa Aktif (Testing)</h2><br/>
  <table id="wali" class="table table-striped table-bordered" >
                 <thead>
                     <tr>

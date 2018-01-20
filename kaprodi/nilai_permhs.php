@@ -58,13 +58,10 @@ $hapus = 1;
               <table id="mahasiswa" class="table table-striped table-bordered" >
 				
 				<thead>
-				
-                    <tr>	  <th width="10%">NOMOR</th>
-						      
-							  <th width="10%">SEMESTER</th>
-							  <th width="10%">SKS</th>
-							  <th width="10%">IPS</th>
-				
+                    <tr>					      
+						 <th width="10%">SEMESTER</th>
+						 <th width="10%">SKS</th>
+						 <th width="10%">IPS</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -78,20 +75,18 @@ $hapus = 1;
                     
 					$hasil = mysqli_query($conn, $sql);
 					if(mysqli_num_rows($hasil) > 0){
-					$no = 1;
+					
 						while ($r = mysqli_fetch_array($hasil)) {
                                      
                     ?>
 
                     <tr align='left'>
-                        <td><?php echo  $no;?></td>
-                        
                         <td><?php echo  $r['semester']; ?></td>
                         <td><?php echo  $r['sks']; ?></td>
                         <td><?php echo  $r['ips']; ?></td>
                     </tr>
                     <?php
-                    $no++;
+                    
                     }
                     ?>
                 </tbody>
@@ -101,6 +96,19 @@ $hapus = 1;
 						echo "hasil tidak ada";
 					}
 					?>
+            </table> 
+
+        <?php
+                
+                $q2  ="select sum(sks) nilai2 from nilai_semester where nim = '$nim'";
+                $h2 = mysqli_query($conn, $q2);
+                $r2 = mysqli_fetch_assoc($h2);
+                                     
+            ?>
+                <table>
+                    <tr>
+                        <th width="20%">TOTAL SKS</th>
+                            <td width="20%"><?php echo  $r2['nilai2']; ?></td></tr>
             </table>  
         </div>
         

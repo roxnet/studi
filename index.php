@@ -29,10 +29,12 @@ include('login.php');
         <div class="top-content">
             <div class="inner-bg">
                 <div class="container">
+                    <h2>PREDIKSI MASA STUDI MAHASISWA STMIK AKAKOM YOGYAKARTA</h2>
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                             <div class="form-top">
                                 <div class="form-top-left">
+
                                     <h3><b>FORM LOGIN </b></h3>
                                     <p>Masukan Username dan Password</p>
                                 </div>

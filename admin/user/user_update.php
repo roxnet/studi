@@ -43,7 +43,7 @@ $data = cariUser($id_user);
 <div class="form-group">
         <label class="control-label col-sm-3" for="username">USERNAME:</label>
         <div class="col-sm-6">
-          <input  class="form-control" type="text" name="username" maxlength="9" value='<?php echo $data['username'];?>'>
+          <input  class="form-control" type="text" name="username" maxlength="9" value='<?php echo $data['username'];?>' readonly>
         </div>
       </div>
 

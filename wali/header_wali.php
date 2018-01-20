@@ -40,7 +40,7 @@ if(!isset($_SESSION['username'])){
                 echo "<img style='height: 30px; margin-top: -5px;' src='../assets/img/icon/wali.png' class='img-circle'>";
 				?> 
 				<div class="pull-left">
-				<p style="margin: -25px 40px 10px;"><i><?php echo $nama; ?></i></p>
+				<p style="margin: -25px 40px 10px;"><i><?php echo "Dosen Wali : " .$nama; ?></i></p>
 				</div>
             </a>
         </div>
@@ -64,8 +64,8 @@ if(!isset($_SESSION['username'])){
 				<li class="c2 dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown">Prediksi<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-				<li><a href="data_training.php">Data Training</a></li>
-				<li><a href="data_testing.php">Data Testing</a></li>
+				<li><a href="data_training.php">Daftar Mhs Lulus(Training)</a></li>
+				<li><a href="data_testing.php">Daftar Mhs Aktif (Testing)</a></li>
 				<li><a href="hasil_prediksi.php">Hasil Prediksi</a></li>
 				</ul>
 				</li>

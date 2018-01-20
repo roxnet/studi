@@ -68,17 +68,28 @@ $hapus = 1;
 					<tr>
 						<th width="20%">TAHUN ANGKATAN</th>
 							<td width="20%"><?php echo  $r['th_masuk']; ?></td></tr>
+
                     <?php
+                    $nim = $r['nim'];
                     }
                     ?>
 				</table>
 				<br/>
               <table id="mahasiswa" class="table table-striped table-bordered" >
-				<a button type="button" class="btn btn-info" href="nilai_tambah.php?nim=<?php echo  $nim; ?>" align='right'>Tambah Nilai</a>
+                <?php 
+                    $nil = mysqli_query($conn, "select count(*) as semester from nilai_semester where nim = '$nim'");
+                    $lai = mysqli_fetch_assoc($nil);
+                    
+                    if ($lai['semester'] < 4   ) {
+                        ?>
+                        <a button type="button" class="btn btn-info" href="nilai_tambah.php?nim=<?php echo $nim; ?>" align="right">Tambah Data</a>
+                        
+                        <?php
+                    }
+                ?>
 				<thead>
 				
-                    <tr>	  <th width="10%">NOMOR</th>
-						      
+                    <tr>
 							  <th width="10%">SEMESTER</th>
 							  <th width="10%">SKS</th>
 							  <th width="10%">IPS</th>
@@ -96,18 +107,15 @@ $hapus = 1;
                     
 					$hasil = mysqli_query($conn, $sql);
 					if(mysqli_num_rows($hasil) > 0){
-					$no = 1;
+					
 						while ($r = mysqli_fetch_array($hasil)) {
                                      
                     ?>
 
-                    <tr align='left'>
-                        <td><?php echo  $no;?></td>
-                        
+                    <tr align='left'>    
                         <td><?php echo  $r['semester']; ?></td>
                         <td><?php echo  $r['sks']; ?></td>
                         <td><?php echo  $r['ips']; ?></td>
-                        
                         <td>  
 							
                             <a button type="button" class="btn btn-warning" href="nilai_update.php?id_nilai=<?php echo $r['id_nilai']; ?>">Update</a> 
@@ -115,7 +123,7 @@ $hapus = 1;
                         </td>
                     </tr>
                     <?php
-                    $no++;
+                    
 					}
 					
                     ?>
@@ -126,7 +134,22 @@ $hapus = 1;
 						echo "hasil tidak ada";
 					}
 					?>
-            </table>  
+            </table>
+            <?php
+                
+                $q2  ="select sum(sks) nilai2 from nilai_semester where nim = '$nim'";
+                $h2 = mysqli_query($conn, $q2);
+                $r2 = mysqli_fetch_assoc($h2);
+                                     
+            ?>
+                <table>
+                    <tr>
+                        <th width="20%">TOTAL SKS</th>
+                            <td width="20%"><?php echo  $r2['nilai2']; ?></td></tr>
+            </table> 
+
+
+
            <center> <a button type="button" class="btn btn-primary" href="cetak_nilaipermhs.php?nim=<?php echo $nim ?>" target="blank" >Cetak</a></center>
         </div>
         
