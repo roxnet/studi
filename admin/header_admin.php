@@ -69,11 +69,11 @@ else { $username = $_SESSION['username'];
 					<li class="c2 dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown">Prediksi<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="prediksi/daftar_prediksi.php">Daftar Prediksi</a></li>
-							<li><a href="prediksi/data_training.php">Data Training</a></li>
-							<li><a href="prediksi/data_testing.php">Data Testing</a></li>
-							<li><a href="prediksi/akurasi_input.php">Tambah Akurasi</a></li>
-							<li><a href="prediksi/akurasi_tampil.php">Daftar Akurasi</a></li>
+							<li><a href="../prediksi/daftar_prediksi.php">Daftar Prediksi</a></li>
+							<li><a href="../prediksi/data_training.php">Data Training</a></li>
+							<li><a href="../prediksi/data_testing.php">Data Testing</a></li>
+							<li><a href="../prediksi/akurasi_input.php">Tambah Akurasi</a></li>
+							<li><a href="../prediksi/akurasi_tampil.php">Daftar Akurasi</a></li>
 							
 						</ul>
 					</li>
